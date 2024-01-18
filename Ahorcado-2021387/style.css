@@ -1,0 +1,116 @@
+body {
+    background-color: black;
+}
+
+.Brazo1 {
+    width: 15px;
+    height: 80px;
+    background-color: white;
+    position: absolute;
+    top: 150px;
+    left: 30px;
+    border-radius: 5px;
+    rotate: 35deg;
+}
+
+.Brazo2 {
+    width: 15px;
+    height: 80px;
+    background-color: white;
+    position: absolute;
+    top: 150px;
+    left: 90px;
+    border-radius: 5px;
+    rotate: -35deg;
+}
+
+.Cabeza {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 60px;
+    left: 28px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.Tronco {
+    width: 15px;
+    height: 150px;
+    border-radius: 5px;
+    position: absolute;
+    background-color: white;
+    top: 135px;
+    left: 60px;
+}
+
+.Pierna1 {
+    width: 15px;
+    height: 80px;
+    background-color: white;
+    position: absolute;
+    top: 270px;
+    left: 30px;
+    border-radius: 5px;
+    rotate: 35deg;
+}
+
+.Pierna2 {
+    width: 15px;
+    height: 80px;
+    background-color: white;
+    position: absolute;
+    top: 270px;
+    left: 90px;
+    border-radius: 5px;
+    rotate: -35deg;
+}
+
+.Palo1 {
+    width: 25px;
+    height: 350px;
+    background-color: brown;
+    position: absolute;
+    left: 140px;
+    top: 10px;
+}
+
+.Palo2 {
+    width: 150px;
+    height: 15px;
+    background-color: brown;
+    position: absolute;
+    left: 15spx;
+    top: 10px;
+}
+
+
+.Palo3 {
+    width: 150px;
+    height: 10px;
+    background-color: brown;
+    position: absolute;
+    left: 15spx;
+    top: 35px;
+    rotate: 15deg;
+}
+
+.Pita1 {
+    width: 20px;
+    height: 10px;
+    border-radius: 65px;
+    background-color: #C19A6B;
+    position: absolute;
+    top: 135px;
+    left: 58px;
+}
+
+.Pita2 {
+    width: 10px;
+    height: 105px;
+    border-radius: 5px;
+    background-color: #C19A6B;
+    position: absolute;
+    top: 35px;
+    left: 63px;
+}

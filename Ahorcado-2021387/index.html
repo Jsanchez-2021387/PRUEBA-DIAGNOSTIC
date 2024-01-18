@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script> src = "ahorcado.js" </script>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahorcado</title>
+</head>
+<body>
+    
+    <div class="Persona">
+        <div class="Brazo1"></div>
+        <div class="Brazo2"></div>
+        <div class="Pierna1"></div>
+        <div class="Pierna2"></div>
+        <div class="Tronco"></div>
+        <div class="Cabeza"></div>
+        <div class="Palo1"></div>
+        <div class="Palo2"></div>
+        <div class="Palo3"></div>
+        <div class="Pita1"></div>
+        <div class="Pita2"></div>
+    </div>
+
+    <body>
+        <h1>JUEGO DEL AHORCADO</h1>
+
+            <div>
+                <p>Palabra a adivinar:</p>
+                <div id="wordDisplay"></div>
+            </div>
+            <div>
+                <p>Letras incorrectas:</p>
+                <div id="wrongLetters"></div>
+            </div>
+            <div>
+                <p>Intentos restantes: <span id="remainingAttempts">6</span></p>
+            </div>
+            <div>
+                <input type="text" id="guessInput" maxlength="1">
+                <button onclick="guessLetter()">Adivinar</button>
+            </div>
+            <div>
+                <p>Teclado virtual:</p>
+                <div id="keyboard"></div>
+            </div>
+        
+            <script>
+                // Lista de palabras para el juego 
+                const wordList = ["password", "extension", "investigar", "programar", "monitor"];             
+        
+                // Elige una palabra al azar
+                let selectedWord = wordList[Math.floor(Math.random() * wordList.length)];
+                let guessedLetters = [];
+                let remainingAttempts = 6;
+        
+                // Función para mostrar la palabra a adivinar con guiones bajos para las letras no adivinadas
+                function displayWord() {
+                    const wordDisplay = document.getElementById("wordDisplay");
+                    wordDisplay.textContent = selectedWord
+                        .split("")
+                        .map(letter => (guessedLetters.includes(letter) ? letter : "_"))
+                        .join(" ");
+                }
+        
+                // Función para manejar la adivinanza de una letra
+                function guessLetter() {
+                    const guessInput = document.getElementById("guessInput");
+                    const guess = guessInput.value.toLowerCase();
+        
+                    if (!guessedLetters.includes(guess)) {
+                        guessedLetters.push(guess);
+        
+                        if (selectedWord.includes(guess)) {
+                            displayWord();
+                        } else {
+                            const wrongLetters = document.getElementById("wrongLetters");
+                            wrongLetters.textContent += guess + " ";
+                            remainingAttempts--;
+                            const remainingAttemptsDisplay = document.getElementById("remainingAttempts");
+                            remainingAttemptsDisplay.textContent = remainingAttempts;
+        
+                            if (remainingAttempts === 0) {
+                                alert("¡Perdiste! La palabra era: " + selectedWord);
+                                resetGame();
+                            }
+                        }
+        
+                        if (!displayWord().includes("_")) {
+                            alert("¡Ganaste! La palabra era: " + selectedWord);
+                            resetGame();
+                        }
+                    }
+        
+                    guessInput.value = "";
+                }
+        
+                // Función para reiniciar el juego
+                function resetGame() {
+                    selectedWord = wordList[Math.floor(Math.random() * wordList.length)];
+                    guessedLetters = [];
+                    remainingAttempts = 6;
+                    displayWord();
+                    const wrongLetters = document.getElementById("wrongLetters");
+                    wrongLetters.textContent = "";
+                    const remainingAttemptsDisplay = document.getElementById("remainingAttempts");
+                    remainingAttemptsDisplay.textContent = remainingAttempts;
+                }
+        
+                // Inicializar el juego al cargar la página
+                displayWord();
+        
+                // Crear teclado virtual
+                const keyboard = document.getElementById("keyboard");
+                for (let letter of "abcdefghijklmnopqrstuvwxyz") {
+                    const button = document.createElement("button");
+                    button.textContent = letter;
+                    button.onclick = function () {
+                        const guessInput = document.getElementById("guessInput");
+                        guessInput.value = letter;
+                            cambiarMuneco()
+                    };
+                    keyboard.appendChild(button);
+                }
+        
+                function cambiarMuneco() {
+                    const muneco7 = document.getElementById("muneco7");
+                    muneco7.style.display = "none";
+                }
+        
+                function actualizarMuneco() {
+                    switch (remainingAttempts) {
+                        case 7:
+                    }
+                }
+        
+        
+            </script>
+        </body>
+
+</body>
+
+</html>
